@@ -8,7 +8,7 @@ const soap = require("soap");
 async function getSubjects(_, callback) {
   console.log("getSubjects called");
 
-  const response = await axios.get("http://localhost:8081/subjects");
+  const response = await axios.get(process.env.SUBJECTS_URL + "/subjects");
 
   callback({ subjects: response.data });
 }
@@ -27,7 +27,7 @@ const server = http.createServer((request, response) => {
   response.end("404: Not Found: " + request.url);
 });
 
-server.listen(8000);
+server.listen(process.env.PORT ?? 8000);
 let myServer = soap.listen(server, "/wsdl", services, xml, () => {
   console.log("server initialized");
 });

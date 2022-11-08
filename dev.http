@@ -2,10 +2,10 @@
 
 ### get wsld
 # @name wsld
-GET http://localhost:8000/wsdl?wsdl HTTP/1.1
+GET http://localhost:8001/wsdl?wsdl HTTP/1.1
 
 ###
-POST http://localhost:8000/wsdl HTTP/1.1
+POST http://localhost:8001/wsdl HTTP/1.1
 Content-Type: application/soap+xml
 
 <?xml version="1.0" encoding="utf-8"?>

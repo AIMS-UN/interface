@@ -1,0 +1,20 @@
+version: "3.8"
+name: "aims"
+
+services:
+  interface:
+    build: .
+    image: aims_interface
+    container_name: interface
+
+    environment:
+      - SUBJECTS_URL=http://subject-ms:8080
+
+    ports:
+      - "8001:8000"
+
+    depends_on:
+      - subject-ms
+
+    links:
+      - subject-ms
