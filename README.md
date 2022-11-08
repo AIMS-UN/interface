@@ -1,184 +1,193 @@
-# AIMS
+# AIMS (Academic Information Management System)
 
-## Interface for subject microservice
+## Interface
+
+This is an interface for the AIMS project.
+It exposes a SOAP API with the getSubjects functionality.
+
+## How to run
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/en/)
+- [npm](https://www.npmjs.com/)
+
+### Run
+
+- Clone the repository
+- Run `npm install`
+
+To run the server, run `npm start:server`.
+
+To run the client, run `npm start:client`.
 
 ## Response example
 
-```json
-[
-  {
-    "subjectId": "1",
-    "subjectName": "Introducci├│n a la criptograf├¡a y la seguridad inform├ítica",
-    "subjectCode": "1053486524-B",
-    "careerId": "1",
-    "curriculum": "curriculum-1",
-    "credits": "3",
-    "groups": [
-      {
-        "groupId": "cca4c365-befb-4d4b-bd42-d9b92384a57d",
-        "maxCapacity": "25",
-        "teacherId": "fd6644f8-f987-4da4-93c3-8b25e3a37f62",
-        "schedules": [
-          {
-            "scheduleId": "1",
-            "day": "1",
-            "startTime": "07:00:00",
-            "endTime": "09:00:00",
-            "classroom": "103",
-            "building": "401"
-          },
-          {
-            "scheduleId": "2",
-            "day": "3",
-            "startTime": "07:00:00",
-            "endTime": "09:00:00",
-            "classroom": "103",
-            "building": "401"
-          }
-        ]
-      },
-      {
-        "groupId": "d0b5c4b5-5b1f-4b2b-9b2c-9b2c9b2c9b2c",
-        "maxCapacity": "25",
-        "teacherId": "fd6644f8-f987-4da4-93c3-8b25e3a37f62",
-        "schedules": [
-          {
-            "scheduleId": "3",
-            "day": "1",
-            "startTime": "09:00:00",
-            "endTime": "11:00:00",
-            "classroom": "115",
-            "building": "453"
-          },
-          {
-            "scheduleId": "4",
-            "day": "3",
-            "startTime": "09:00:00",
-            "endTime": "11:00:00",
-            "classroom": "115",
-            "building": "453"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "subjectId": "2",
-    "subjectName": "Ingenier├¡a de Software I",
-    "subjectCode": "1053486524-C",
-    "careerId": "1",
-    "curriculum": "curriculum-1",
-    "credits": "3",
-    "groups": {
-      "groupId": "d0b5c4b5-5b1f-4b2b-9b2c-9b2c9b2c9b2d",
-      "maxCapacity": "30",
-      "teacherId": "fd6644f8-f987-4da4-93c3-8b25e3a37f62",
-      "schedules": [
-        {
-          "scheduleId": "5",
-          "day": "2",
-          "startTime": "07:00:00",
-          "endTime": "09:00:00",
-          "classroom": "204",
-          "building": "401"
-        },
-        {
-          "scheduleId": "6",
-          "day": "4",
-          "startTime": "07:00:00",
-          "endTime": "09:00:00",
-          "classroom": "204",
-          "building": "401"
-        }
-      ]
-    }
-  },
-  {
-    "subjectId": "3",
-    "subjectName": "Ingenier├¡a de Software II",
-    "subjectCode": "1053486524-D",
-    "careerId": "2",
-    "curriculum": "curriculum-1",
-    "credits": "4",
-    "groups": {
-      "groupId": "d0b5c4b5-5b1f-4b2b-9b2c-9b2c9b2c9b2e",
-      "maxCapacity": "30",
-      "teacherId": "fd6644f8-f987-4da4-93c3-8b25e3a37f62",
-      "schedules": [
-        {
-          "scheduleId": "7",
-          "day": "2",
-          "startTime": "14:00:00",
-          "endTime": "16:00:00",
-          "classroom": "403",
-          "building": "454"
-        },
-        {
-          "scheduleId": "8",
-          "day": "4",
-          "startTime": "14:00:00",
-          "endTime": "16:00:00",
-          "classroom": "403",
-          "building": "454"
-        }
-      ]
-    }
-  },
-  {
-    "subjectId": "4",
-    "subjectName": "Arquitectura de Software",
-    "subjectCode": "1053486524-E",
-    "careerId": "1",
-    "curriculum": "curriculum-1",
-    "credits": "8",
-    "groups": [
-      {
-        "groupId": "2d3c0e52-a09c-47db-8c42-8028f6e9856c",
-        "maxCapacity": "40",
-        "teacherId": "fd6644f8-f987-4da4-93c3-8b25e3a37f62",
-        "schedules": [
-          {
-            "scheduleId": "11",
-            "day": "2",
-            "startTime": "11:00:00",
-            "endTime": "13:00:00",
-            "classroom": "204",
-            "building": "401"
-          },
-          {
-            "scheduleId": "12",
-            "day": "4",
-            "startTime": "11:00:00",
-            "endTime": "13:00:00",
-            "classroom": "204",
-            "building": "401"
-          }
-        ]
-      },
-      {
-        "groupId": "a1933e14-95c6-4add-9a74-2cc0b83d554d",
-        "maxCapacity": "40",
-        "teacherId": "fd6644f8-f987-4da4-93c3-8b25e3a37f62",
-        "schedules": [
-          {
-            "scheduleId": "9",
-            "day": "2",
-            "startTime": "09:00:00",
-            "endTime": "11:00:00",
-            "classroom": "204",
-            "building": "401"
-          },
-          {
-            "scheduleId": "10",
-            "day": "4",
-            "startTime": "09:00:00",
-            "endTime": "11:00:00",
-            "classroom": "204",
-            "building": "401"
-          }
-        ]
-      }
-    ]
-  }
-]
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" >
+  <soap:Body>
+    <SubjectsResponse>
+      <subjects>
+        <subjectId>1</subjectId>
+        <subjectName>Introducción a la criptografía y la seguridad informática</subjectName>
+        <subjectCode>1053486524-B</subjectCode>
+        <careerId>1</careerId>
+        <curriculum>curriculum-1</curriculum>
+        <credits>3</credits>
+        <groups>
+          <groupId>cca4c365-befb-4d4b-bd42-d9b92384a57d</groupId>
+          <maxCapacity>25</maxCapacity>
+          <teacherId>fd6644f8-f987-4da4-93c3-8b25e3a37f62</teacherId>
+          <schedules>
+            <scheduleId>1</scheduleId>
+            <day>1</day>
+            <startTime>07:00:00</startTime>
+            <endTime>09:00:00</endTime>
+            <classroom>103</classroom>
+            <building>401</building>
+          </schedules>
+          <schedules>
+            <scheduleId>2</scheduleId>
+            <day>3</day>
+            <startTime>07:00:00</startTime>
+            <endTime>09:00:00</endTime>
+            <classroom>103</classroom>
+            <building>401</building>
+          </schedules>
+        </groups>
+        <groups>
+          <groupId>d0b5c4b5-5b1f-4b2b-9b2c-9b2c9b2c9b2c</groupId>
+          <maxCapacity>25</maxCapacity>
+          <teacherId>fd6644f8-f987-4da4-93c3-8b25e3a37f62</teacherId>
+          <schedules>
+            <scheduleId>3</scheduleId>
+            <day>1</day>
+            <startTime>09:00:00</startTime>
+            <endTime>11:00:00</endTime>
+            <classroom>115</classroom>
+            <building>453</building>
+          </schedules>
+          <schedules>
+            <scheduleId>4</scheduleId>
+            <day>3</day>
+            <startTime>09:00:00</startTime>
+            <endTime>11:00:00</endTime>
+            <classroom>115</classroom>
+            <building>453</building>
+          </schedules>
+        </groups>
+      </subjects>
+      <subjects>
+        <subjectId>2</subjectId>
+        <subjectName>Ingeniería de Software I</subjectName>
+        <subjectCode>1053486524-C</subjectCode>
+        <careerId>1</careerId>
+        <curriculum>curriculum-1</curriculum>
+        <credits>3</credits>
+        <groups>
+          <groupId>d0b5c4b5-5b1f-4b2b-9b2c-9b2c9b2c9b2d</groupId>
+          <maxCapacity>30</maxCapacity>
+          <teacherId>fd6644f8-f987-4da4-93c3-8b25e3a37f62</teacherId>
+          <schedules>
+            <scheduleId>5</scheduleId>
+            <day>2</day>
+            <startTime>07:00:00</startTime>
+            <endTime>09:00:00</endTime>
+            <classroom>204</classroom>
+            <building>401</building>
+          </schedules>
+          <schedules>
+            <scheduleId>6</scheduleId>
+            <day>4</day>
+            <startTime>07:00:00</startTime>
+            <endTime>09:00:00</endTime>
+            <classroom>204</classroom>
+            <building>401</building>
+          </schedules>
+        </groups>
+      </subjects>
+      <subjects>
+        <subjectId>3</subjectId>
+        <subjectName>Ingeniería de Software II</subjectName>
+        <subjectCode>1053486524-D</subjectCode>
+        <careerId>2</careerId>
+        <curriculum>curriculum-1</curriculum>
+        <credits>4</credits>
+        <groups>
+          <groupId>d0b5c4b5-5b1f-4b2b-9b2c-9b2c9b2c9b2e</groupId>
+          <maxCapacity>30</maxCapacity>
+          <teacherId>fd6644f8-f987-4da4-93c3-8b25e3a37f62</teacherId>
+          <schedules>
+            <scheduleId>7</scheduleId>
+            <day>2</day>
+            <startTime>14:00:00</startTime>
+            <endTime>16:00:00</endTime>
+            <classroom>403</classroom>
+            <building>454</building>
+          </schedules>
+          <schedules>
+            <scheduleId>8</scheduleId>
+            <day>4</day>
+            <startTime>14:00:00</startTime>
+            <endTime>16:00:00</endTime>
+            <classroom>403</classroom>
+            <building>454</building>
+          </schedules>
+        </groups>
+      </subjects>
+      <subjects>
+        <subjectId>4</subjectId>
+        <subjectName>Arquitectura de Software</subjectName>
+        <subjectCode>1053486524-E</subjectCode>
+        <careerId>1</careerId>
+        <curriculum>curriculum-1</curriculum>
+        <credits>8</credits>
+        <groups>
+          <groupId>2d3c0e52-a09c-47db-8c42-8028f6e9856c</groupId>
+          <maxCapacity>40</maxCapacity>
+          <teacherId>fd6644f8-f987-4da4-93c3-8b25e3a37f62</teacherId>
+          <schedules>
+            <scheduleId>11</scheduleId>
+            <day>2</day>
+            <startTime>11:00:00</startTime>
+            <endTime>13:00:00</endTime>
+            <classroom>204</classroom>
+            <building>401</building>
+          </schedules>
+          <schedules>
+            <scheduleId>12</scheduleId>
+            <day>4</day>
+            <startTime>11:00:00</startTime>
+            <endTime>13:00:00</endTime>
+            <classroom>204</classroom>
+            <building>401</building>
+          </schedules>
+        </groups>
+        <groups>
+          <groupId>a1933e14-95c6-4add-9a74-2cc0b83d554d</groupId>
+          <maxCapacity>40</maxCapacity>
+          <teacherId>fd6644f8-f987-4da4-93c3-8b25e3a37f62</teacherId>
+          <schedules>
+            <scheduleId>9</scheduleId>
+            <day>2</day>
+            <startTime>09:00:00</startTime>
+            <endTime>11:00:00</endTime>
+            <classroom>204</classroom>
+            <building>401</building>
+          </schedules>
+          <schedules>
+            <scheduleId>10</scheduleId>
+            <day>4</day>
+            <startTime>09:00:00</startTime>
+            <endTime>11:00:00</endTime>
+            <classroom>204</classroom>
+            <building>401</building>
+          </schedules>
+        </groups>
+      </subjects>
+    </SubjectsResponse>
+  </soap:Body>
+</soap:Envelope>
 ```

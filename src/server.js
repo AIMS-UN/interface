@@ -5,15 +5,12 @@ const path = require("node:path");
 const axios = require("axios");
 const soap = require("soap");
 
-async function getSubjects(args, callback) {
+async function getSubjects(_, callback) {
   console.log("getSubjects called");
 
   const response = await axios.get("http://localhost:8081/subjects");
-  const subjects = response.data;
 
-  callback({
-    subjects: subjects,
-  });
+  callback({ subjects: response.data });
 }
 
 const services = {
@@ -31,6 +28,10 @@ const server = http.createServer((request, response) => {
 });
 
 server.listen(8000);
-soap.listen(server, "/wsdl", services, xml, () => {
+let myServer = soap.listen(server, "/wsdl", services, xml, () => {
   console.log("server initialized");
 });
+
+myServer.log = function (type, data) {
+  console.log(type, data);
+};
