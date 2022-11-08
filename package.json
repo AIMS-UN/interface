@@ -1,0 +1,28 @@
+{
+  "name": "aims-interface",
+  "version": "0.1.0",
+  "description": "Interface for subject microservice",
+  "main": "index.js",
+  "scripts": {
+    "start:server": "nodemon src/server.js",
+    "start:client": "node src/client.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SGman98/AIMS-interface.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SGman98/AIMS-interface/issues"
+  },
+  "homepage": "https://github.com/SGman98/AIMS-interface#readme",
+  "dependencies": {
+    "axios": "1.1.3",
+    "soap": "0.40.0"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.20"
+  }
+}

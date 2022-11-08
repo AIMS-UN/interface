@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://tempuri.org/" 
+  xmlns:s="http://www.w3.org/2001/XMLSchema" 
+  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
+  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
+  xmlns:tns="http://tempuri.org/" 
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+  xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" 
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SubjectsRequest">
+        <s:complexType>
+          <s:sequence>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Subject">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="subjectId" type="s:int"/>
+            <s:element name="subjectName" type="s:string"/>
+            <s:element name="subjectCode" type="s:string"/>
+            <s:element name="careerId" type="s:int"/>
+            <s:element name="curriculum" type="s:string"/>
+            <s:element name="credits" type="s:int"/>
+            <s:element name="groups" type="tns:Group" minOccurs="0" maxOccurs="unbounded"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+
+      <s:element name="Group">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="groupId" type="s:string"/>
+            <s:element name="maxCapacity" type="s:int"/>
+            <s:element name="teacherId" type="s:string"/>
+            <s:element name="schedules" type="tns:Schedule" minOccurs="0" maxOccurs="unbounded"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+
+      <s:element name="Schedule">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="scheduleId" type="s:int"/>
+            <s:element name="day" type="s:int"/>
+            <s:element name="startTime" type="s:string"/>
+            <s:element name="endTime" type="s:string"/>
+            <s:element name="classroom" type="s:int"/>
+            <s:element name="building" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+
+      <s:element name="SubjectsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="subjects" type="tns:Subject" minOccurs="0" maxOccurs="unbounded"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SubjectsSoapIn">
+    <wsdl:part name="parameters" element="tns:SubjectsRequest" />
+  </wsdl:message>
+  <wsdl:message name="SubjectsSoapOut">
+    <wsdl:part name="parameters" element="tns:SubjectsResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="SubjectsSoapPort">
+    <wsdl:operation name="getSubjects">
+      <wsdl:input message="tns:SubjectsSoapIn" />
+      <wsdl:output message="tns:SubjectsSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SubjectsSoapBinding" type="tns:SubjectsSoapPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getSubjects">
+      <soap:operation soapAction="getSubjects" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SubjectsService">
+    <wsdl:port name="SubjectsServiceSoapPort" binding="tns:SubjectsSoapBinding">
+      <soap:address location="http://localhost:8000/wsdl"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
