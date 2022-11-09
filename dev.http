@@ -1,12 +1,10 @@
-
-
-### get wsld
-# @name wsld
-GET http://localhost:8001/wsdl?wsdl HTTP/1.1
+@baseUrl=https://aimsinterface-production.up.railway.app/wsdl
+###
+GET {{baseUrl}}?wsdl HTTP/1.1
 
 ###
-POST http://localhost:8001/wsdl HTTP/1.1
-Content-Type: application/soap+xml
+POST {{baseUrl}} HTTP/1.1
+Content-Type: application/xml
 
 <?xml version="1.0" encoding="utf-8"?>
 <soap:Envelope>
@@ -14,4 +12,3 @@ Content-Type: application/soap+xml
       <SubjectsSoapIn/>
    </soap:Body>
 </soap:Envelope>
-

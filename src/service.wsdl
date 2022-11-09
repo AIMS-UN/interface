@@ -3,21 +3,23 @@
   xmlns:s="http://www.w3.org/2001/XMLSchema"
   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:tns="http://example.com/Subject"
+  targetNamespace="http://example.com/Subject"
+  name="Subject"
 >
   <!-- Types -->
   <wsdl:types>
-    <s:schema elementFormDefault="qualified">
+    <s:schema elementFormDefault="qualified" targetNamespace="http://example.com/Subject">
 
-      <s:element name="Subject">
+      <s:element name="Schedule">
         <s:complexType>
           <s:sequence>
-            <s:element name="subjectId" type="s:int" />
-            <s:element name="subjectName" type="s:string" />
-            <s:element name="subjectCode" type="s:string" />
-            <s:element name="careerId" type="s:int" />
-            <s:element name="curriculum" type="s:string" />
-            <s:element name="credits" type="s:int" />
-            <s:element name="groups" type="tns:Group" minOccurs="0" maxOccurs="unbounded" />
+            <s:element name="scheduleId" type="s:int" />
+            <s:element name="day" type="s:int" />
+            <s:element name="startTime" type="s:string" />
+            <s:element name="endTime" type="s:string" />
+            <s:element name="classroom" type="s:int" />
+            <s:element name="building" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -33,15 +35,16 @@
         </s:complexType>
       </s:element>
 
-      <s:element name="Schedule">
+      <s:element name="Subject">
         <s:complexType>
           <s:sequence>
-            <s:element name="scheduleId" type="s:int" />
-            <s:element name="day" type="s:int" />
-            <s:element name="startTime" type="s:string" />
-            <s:element name="endTime" type="s:string" />
-            <s:element name="classroom" type="s:int" />
-            <s:element name="building" type="s:int" />
+            <s:element name="subjectId" type="s:int" />
+            <s:element name="subjectName" type="s:string" />
+            <s:element name="subjectCode" type="s:string" />
+            <s:element name="careerId" type="s:int" />
+            <s:element name="curriculum" type="s:string" />
+            <s:element name="credits" type="s:int" />
+            <s:element name="groups" type="tns:Group" minOccurs="0" maxOccurs="unbounded" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -89,7 +92,7 @@
   <!-- Service -->
   <wsdl:service name="SubjectsService">
     <wsdl:port name="SubjectsServiceSoapPort" binding="tns:SubjectsSoapBinding">
-      <soap:address location="http://localhost:8000/wsdl" />
+      <soap:address location="https://aimsinterface-production.up.railway.app/wsdl" />
     </wsdl:port>
   </wsdl:service>
 
