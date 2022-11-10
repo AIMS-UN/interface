@@ -1,7 +1,11 @@
 const soap = require("soap");
 
-soap.createClientAsync("http://localhost:8000/wsdl?wsdl").then((client) => {
-  client.getSubjectsAsync({}).then((result) => {
-    console.log(JSON.stringify(result[0].subjects, null, 2));
+soap
+  .createClientAsync(
+    "https://aimsinterface-production.up.railway.app/wsdl?wsdl"
+  )
+  .then((client) => {
+    client.getSubjectsAsync({}).then((result) => {
+      console.log(JSON.stringify(result[0].subjects, null, 2));
+    });
   });
-});
