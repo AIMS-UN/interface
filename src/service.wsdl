@@ -5,49 +5,45 @@
   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
   xmlns:tns="http://example.com/Subject"
   targetNamespace="http://example.com/Subject"
-  name="Subject"
 >
+  <wsdl:documentation>
+    This is a WSDL file for the Subjects service.
+  </wsdl:documentation>
   <!-- Types -->
   <wsdl:types>
-    <s:schema elementFormDefault="qualified" targetNamespace="http://example.com/Subject">
+    <s:schema targetNamespace="http://example.com/Subject">
 
-      <s:element name="Schedule">
-        <s:complexType>
-          <s:sequence>
-            <s:element name="scheduleId" type="s:int" />
-            <s:element name="day" type="s:int" />
-            <s:element name="startTime" type="s:string" />
-            <s:element name="endTime" type="s:string" />
-            <s:element name="classroom" type="s:int" />
-            <s:element name="building" type="s:int" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
+      <s:complexType name="Schedule">
+        <s:sequence>
+          <s:element name="scheduleId" type="s:int" />
+          <s:element name="day" type="s:int" />
+          <s:element name="startTime" type="s:string" />
+          <s:element name="endTime" type="s:string" />
+          <s:element name="classroom" type="s:int" />
+          <s:element name="building" type="s:int" />
+        </s:sequence>
+      </s:complexType>
 
-      <s:element name="Group">
-        <s:complexType>
-          <s:sequence>
-            <s:element name="groupId" type="s:string" />
-            <s:element name="maxCapacity" type="s:int" />
-            <s:element name="teacherId" type="s:string" />
-            <s:element name="schedules" type="tns:Schedule" minOccurs="0" maxOccurs="unbounded" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
+      <s:complexType name="Group">
+        <s:sequence>
+          <s:element name="groupId" type="s:string" />
+          <s:element name="maxCapacity" type="s:int" />
+          <s:element name="teacherId" type="s:string" />
+          <s:element name="schedules" type="tns:Schedule" minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
 
-      <s:element name="Subject">
-        <s:complexType>
-          <s:sequence>
-            <s:element name="subjectId" type="s:int" />
-            <s:element name="subjectName" type="s:string" />
-            <s:element name="subjectCode" type="s:string" />
-            <s:element name="careerId" type="s:int" />
-            <s:element name="curriculum" type="s:string" />
-            <s:element name="credits" type="s:int" />
-            <s:element name="groups" type="tns:Group" minOccurs="0" maxOccurs="unbounded" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
+      <s:complexType name="Subject">
+        <s:sequence>
+          <s:element name="subjectId" type="s:int" />
+          <s:element name="subjectName" type="s:string" />
+          <s:element name="subjectCode" type="s:string" />
+          <s:element name="careerId" type="s:int" />
+          <s:element name="curriculum" type="s:string" />
+          <s:element name="credits" type="s:int" />
+          <s:element name="groups" type="tns:Group" minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
 
       <s:element name="SubjectsResponse">
         <s:complexType>
@@ -69,6 +65,9 @@
 
   <!-- PortType -->
   <wsdl:portType name="SubjectsSoapPort">
+    <wsdl:documentation>
+      This is the port type for the getSubjects operation.
+    </wsdl:documentation>
     <wsdl:operation name="getSubjects">
       <wsdl:input message="tns:SubjectsSoapIn" />
       <wsdl:output message="tns:SubjectsSoapOut" />
