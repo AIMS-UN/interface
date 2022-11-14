@@ -9,6 +9,6 @@ Content-Type: application/xml
 <?xml version="1.0" encoding="utf-8"?>
 <soap:Envelope>
    <soap:Body>
-      <SubjectsSoapIn/>
+      <urn:getSubjects />
    </soap:Body>
 </soap:Envelope>
